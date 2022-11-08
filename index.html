@@ -1,39 +1,53 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>00:55 AM 07/11/2022</title>
     <style>
-        @media all and (min-width: 320px) {
-            body {
-                background-image: url("anh12.jpg");
-                background-size: cover;
-            }
-
-            p {
-                color: white;
-                line-height: 1.7;
-            }
-        }
-
-        div {
-            margin: 20% 10% 10% 10%;
+        p {
+            text-align: center;
+            font-size: 60px;
+            margin-top: 0px;
         }
     </style>
 </head>
-
 <body>
-<div>
-    <p>Thực sự ngày hôm qua anh đã rất vui khi đi với em. Anh cũng xin lỗi vì nhìn anh có vẻ là mệt mỏi vì đêm hôm trước anh không ngủ được.</b><br>
-    <p>Ngày hôm qua em có nói hai câu mà thực sự là anh không biết phải nghĩ như nào nữa "Thế em đi vs bạn em nhé :)))" "Em sẽ đi vs anh 94" em có nghĩ đến anh sẽ nghĩ như nào khi em 
-        nói vậy không? Nghe như kiểu chỉ là một sụ lựa chọn thôi ha. Anh nghĩ em không có ý dấy nhưng cái suy nghĩ đó cứ ở trong đầu anh, mà thế cũng đâu có sao vì mình cũng đã là gì đâu lựa chọn cùng là điều bình thường.</b>
-        <p>Do anh đã suy nghĩ, kỳ vọng quá nhiều rồi.</b>
-</div>
+    <p id="demo"></p>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Nov 7, 2022 20:50:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = now - countDownDate;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
